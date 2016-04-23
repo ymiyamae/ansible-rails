@@ -1,0 +1,6 @@
+---
+  usergroup:
+    samurai:
+      user: samurai
+      group: ar
+      password: $1$salty$SzJsU4qDcXp536Acnlp6I.

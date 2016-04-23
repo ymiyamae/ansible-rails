@@ -1,0 +1,4 @@
+- name: パッケージインストール
+  yum: name="{{ item }}" state=present
+  with_items:
+    - "{{ yum_packages }}"

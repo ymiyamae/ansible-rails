@@ -1,0 +1,8 @@
+- name: 初期設定
+  yum: name=yum-fastestmirror state=present
+
+- name: アップグレード
+  yum: name=* state=latest
+
+- name: epel インストール
+  yum: name=epel-release state=present

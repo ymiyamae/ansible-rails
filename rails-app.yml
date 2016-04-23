@@ -1,0 +1,31 @@
+---
+- hosts: all
+  gather_facts: no
+  become: true
+  become_user: root
+  user: vagrant
+  vars_files:
+    - vars/usergroup.yml
+
+  tasks:
+    - name: システムアップデート
+      yum: name=* state=latest
+
+    - name: gccをインストール
+      yum: name=gcc state=present
+
+    - name: port 3840 && PermitRootLogin off
+      notify:
+        - restart sshd
+      copy: src="roles/sshd/sshd_config" dest="/etc/ssh/sshd_config" owner=root group=root mode=0600
+      tags: sshd
+
+    - name: sshd is enabled and started
+      service: name=sshd state=running enabled=yes
+      tags: sshd
+
+    - name: ブロジェクトグループ作成
+      group: name={{usergroup.samurai.group}}
+
+    - name: ユーザ登録
+      user: name="{{usergroup.samurai.user}}" state=present group="{{usergroup.samurai.group}}" password="{{usergroup.samurai.password}}"

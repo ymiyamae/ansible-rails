@@ -1,0 +1,16 @@
+# 親ファイル
+# インクルードのみ実行
+---
+- hosts: all
+  become: true
+  user: vagrant
+  vars_files:
+    - vars/usergroup.yml
+  vars:
+    user_name: admin
+    user_password: password
+    ssh_port: 3840
+
+  roles:
+    - init
+    - yum

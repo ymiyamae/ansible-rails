@@ -1,0 +1,37 @@
+---
+yum_packages:
+  - gcc
+  - yum-cron
+  - ntp
+  - git.x86_64
+  - curl
+  - gcc-c++
+  - patch
+  - readline
+  - readline-devel
+  - zlib
+  - zlib-devel
+  - libyaml-devel
+  - libffi-devel
+  - openssl-devel
+  - make
+  - bzip2
+  - bzip2-devel
+  - autoconf
+  - automake
+  - libtool
+  - bison
+  - wget
+  - mysql-devel
+  - libxml2
+  - libxml2-devel
+  - libxslt
+  - libxslt-devel
+  - lcms-devel
+  - libjpeg-devel
+  - libX11-devel
+  - libXt-devel
+  - libtiff-devel
+  - ghostscript-devel
+  - libXext-devel
+  - libpng-devel
